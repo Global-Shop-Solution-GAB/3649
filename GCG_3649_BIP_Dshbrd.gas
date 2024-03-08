@@ -1,0 +1,932 @@
+Program.Sub.ScreenSU.Start
+gui.SS_Form1..create
+gui.SS_Form1..caption("BOM In Process Dashboard")
+gui.SS_Form1..size(17460,9840)
+gui.SS_Form1..minx(0)
+gui.SS_Form1..miny(0)
+gui.SS_Form1..position(0,0)
+gui.SS_Form1..event(unload,SS_Form1_Unload)
+gui.SS_Form1..alwaysontop(False)
+gui.SS_Form1..fontname("Arial")
+gui.SS_Form1..fontsize(8)
+gui.SS_Form1..forecolor(0)
+gui.SS_Form1..fontstyle(,,,,)
+gui.SS_Form1..BackColor(-2147483633)
+gui.SS_Form1..controlbox(True)
+gui.SS_Form1..maxbutton(False)
+gui.SS_Form1..minbutton(False)
+gui.SS_Form1..mousepointer(0)
+gui.SS_Form1..moveable(True)
+gui.SS_Form1..sizeable(False)
+gui.SS_Form1..ShowInTaskBar(True)
+gui.SS_Form1..titlebar(True)
+gui.SS_Form1.lbl_txtJob.create(label,"Job",True,1080,195,1,105,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl_txtJob.defaultvalue("")
+gui.SS_Form1.lbl_txtJob.controlgroup(0)
+gui.SS_Form1.txtJob.create(textbox,"",True,1230,330,0,105,330,True,0,Arial,8,16777215,1)
+gui.SS_Form1.txtJob.event(change,txtjob_change)
+gui.SS_Form1.txtJob.event(gotfocus,txtjob_gotfocus)
+gui.SS_Form1.txtJob.event(lostfocus,txtjob_change)
+gui.SS_Form1.txtJob.defaultvalue("")
+gui.SS_Form1.txtJob.controlgroup(0)
+gui.SS_Form1.lbl_txtSuffix.create(label,"Suffix",True,1290,195,1,1380,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl_txtSuffix.defaultvalue("")
+gui.SS_Form1.lbl_txtSuffix.controlgroup(0)
+gui.SS_Form1.txtSuffix.create(textbox,"",True,690,330,0,1365,330,True,0,Arial,8,16777215,1)
+gui.SS_Form1.txtSuffix.event(change,txtsuffix_change)
+gui.SS_Form1.txtSuffix.event(gotfocus,txtsuffix_gotfocus)
+gui.SS_Form1.txtSuffix.event(lostfocus,txtsuffix_change)
+gui.SS_Form1.txtSuffix.defaultvalue("")
+gui.SS_Form1.txtSuffix.controlgroup(0)
+gui.SS_Form1.cmd_txtSuffix.create(button)
+gui.SS_Form1.cmd_txtSuffix.caption("^")
+gui.SS_Form1.cmd_txtSuffix.visible(True)
+gui.SS_Form1.cmd_txtSuffix.size(330,330)
+gui.SS_Form1.cmd_txtSuffix.zorder(0)
+gui.SS_Form1.cmd_txtSuffix.position(2250,330)
+gui.SS_Form1.cmd_txtSuffix.enabled(True)
+gui.SS_Form1.cmd_txtSuffix.fontname("Arial")
+gui.SS_Form1.cmd_txtSuffix.fontsize(8)
+gui.SS_Form1.cmd_txtSuffix.event(click,cmd_txtSuffix_Click)
+gui.SS_Form1.cmd_txtSuffix.defaultvalue("")
+gui.SS_Form1.cmd_txtSuffix.controlgroup(0)
+gui.SS_Form1.lbl_txtPart.create(label,"Finished Good",True,1800,195,1,3015,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl_txtPart.defaultvalue("")
+gui.SS_Form1.lbl_txtPart.controlgroup(0)
+gui.SS_Form1.txtPart.create(textbox,"",True,2880,330,0,3015,345,True,0,Arial,8,16777215,1)
+gui.SS_Form1.txtPart.defaultvalue("")
+gui.SS_Form1.txtPart.controlgroup(0)
+gui.SS_Form1.lbl_txtDesc.create(label,"Work Order Description",True,4545,255,1,6015,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl_txtDesc.defaultvalue("")
+gui.SS_Form1.lbl_txtDesc.controlgroup(0)
+gui.SS_Form1.txtDesc.create(textbox,"",True,4470,330,0,6000,330,True,0,Arial,8,16777215,1)
+gui.SS_Form1.txtDesc.defaultvalue("")
+gui.SS_Form1.txtDesc.controlgroup(0)
+gui.SS_Form1.cmdLoad.create(button)
+gui.SS_Form1.cmdLoad.caption("Load")
+gui.SS_Form1.cmdLoad.visible(True)
+gui.SS_Form1.cmdLoad.size(1000,360)
+gui.SS_Form1.cmdLoad.zorder(0)
+gui.SS_Form1.cmdLoad.position(100,835)
+gui.SS_Form1.cmdLoad.enabled(True)
+gui.SS_Form1.cmdLoad.fontname("Arial")
+gui.SS_Form1.cmdLoad.fontsize(8)
+gui.SS_Form1.cmdLoad.event(click,cmdLoad_Click)
+gui.SS_Form1.cmdLoad.defaultvalue("")
+gui.SS_Form1.cmdLoad.controlgroup(0)
+gui.SS_Form1.cmdPickList.create(button)
+gui.SS_Form1.cmdPickList.caption("Print Pick List")
+gui.SS_Form1.cmdPickList.visible(True)
+gui.SS_Form1.cmdPickList.size(1275,555)
+gui.SS_Form1.cmdPickList.zorder(0)
+gui.SS_Form1.cmdPickList.position(105,8610)
+gui.SS_Form1.cmdPickList.enabled(True)
+gui.SS_Form1.cmdPickList.fontname("Arial")
+gui.SS_Form1.cmdPickList.fontsize(8)
+gui.SS_Form1.cmdPickList.event(click,cmdPickList_Click)
+gui.SS_Form1.cmdPickList.defaultvalue("")
+gui.SS_Form1.cmdPickList.controlgroup(0)
+gui.SS_Form1.fgGrid.create(gsflexgrid)
+gui.SS_Form1.fgGrid.FixedRows(0)
+gui.SS_Form1.fgGrid.FixedCols(0)
+gui.SS_Form1.fgGrid.visible(True)
+gui.SS_Form1.fgGrid.size(16875,7140)
+gui.SS_Form1.fgGrid.zorder(0)
+gui.SS_Form1.fgGrid.position(105,1305)
+gui.SS_Form1.fgGrid.enabled(True)
+gui.SS_Form1.fgGrid.event(mouseup,fggrid_mouseup)
+gui.SS_Form1.cmdExport.create(button)
+gui.SS_Form1.cmdExport.caption("Export")
+gui.SS_Form1.cmdExport.visible(True)
+gui.SS_Form1.cmdExport.size(1275,555)
+gui.SS_Form1.cmdExport.zorder(0)
+gui.SS_Form1.cmdExport.position(1475,8615)
+gui.SS_Form1.cmdExport.enabled(True)
+gui.SS_Form1.cmdExport.fontname("Arial")
+gui.SS_Form1.cmdExport.fontsize(8)
+gui.SS_Form1.cmdExport.event(click,cmdexport_click)
+gui.SS_Form1.cmdExport.defaultvalue("")
+gui.SS_Form1.cmdExport.controlgroup(0)
+gui.SS_Form1.lbl5.create(label,"Beg Tier",True,1140,255,1,10800,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl5.defaultvalue("")
+gui.SS_Form1.lbl5.controlgroup(0)
+gui.SS_Form1.txtBegTier.create(textbox,"",True,600,300,0,10800,330,True,0,Arial,8,-2147483643,1)
+gui.SS_Form1.txtBegTier.numericonly(2)
+gui.SS_Form1.txtBegTier.event(lostfocus,txtbegtier_lostfocus)
+gui.SS_Form1.txtBegTier.defaultvalue("")
+gui.SS_Form1.txtBegTier.controlgroup(0)
+gui.SS_Form1.lbl6.create(label,"End Tier",True,840,255,1,11830,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl6.defaultvalue("")
+gui.SS_Form1.lbl6.controlgroup(0)
+gui.SS_Form1.txtEndTier.create(textbox,"",True,630,300,0,11800,330,True,0,Arial,8,-2147483643,1)
+gui.SS_Form1.txtEndTier.numericonly(2)
+gui.SS_Form1.txtEndTier.defaultvalue("")
+gui.SS_Form1.txtEndTier.controlgroup(0)
+gui.SS_Form1.lbl7.create(label,"To",True,255,255,1,11500,375,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl7.defaultvalue("")
+gui.SS_Form1.lbl7.controlgroup(0)
+gui.SS_Form1.txtJob.tabstop(True)
+gui.SS_Form1.txtJob.tabindex(1)
+gui.SS_Form1.txtSuffix.tabstop(True)
+gui.SS_Form1.txtSuffix.tabindex(2)
+gui.SS_Form1.cmd_txtSuffix.tabstop(True)
+gui.SS_Form1.cmd_txtSuffix.tabindex(3)
+gui.SS_Form1.cmdLoad.tabstop(True)
+gui.SS_Form1.cmdLoad.tabindex(4)
+gui.SS_Form1.txtPart.tabstop(True)
+gui.SS_Form1.txtPart.tabindex(5)
+gui.SS_Form1.txtDesc.tabstop(True)
+gui.SS_Form1.txtDesc.tabindex(6)
+gui.SS_Form1.cmdPickList.tabstop(True)
+gui.SS_Form1.cmdPickList.tabindex(7)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Variable.Global.sWorkOrder.Declare(String)
+Variable.Global.sSuffix.Declare(String)
+Variable.UDT.uBOM.Define("Parent",String)
+Variable.UDT.uBOM.Define("Component",String)
+Variable.UDT.uBOM.Define("Level",String)
+Variable.UDT.uBOM.Define("Desc",String)
+Variable.UDT.uBOM.Define("Source",String)
+Variable.UDT.uBOM.Define("Bom_QTY",Float)
+Variable.UDT.uBOM.Define("WorkOrder",String)
+Variable.UDT.uBOM.Define("Suffix",String)
+Variable.UDT.uBOM.Define("WorkCenter",String)
+Variable.UDT.uBOM.Define("PO",String)
+Variable.UDT.uBOM.Define("POLine",String)
+Variable.UDT.uBOM.Define("QtyAvailable",Float)
+Variable.UDT.uBOM.Define("Bin",String)
+Variable.UDT.uBOM.Define("Red",String)
+Variable.UDT.uBOM.Define("Location",String)
+Variable.UDT.uBOM.Define("DueDate",String)
+
+Variable.uGlobal.uBom.Declare("uBOM")
+variable.Global.sPart.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!conX.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+Gui.SS_Form1.txtPart.Locked(True)
+Gui.SS_Form1.txtDesc.Locked(True)
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,"15710")
+	V.Passed.000021.Set("BOM Dsh")
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+F.Intrinsic.Control.EndIf
+
+
+Function.Intrinsic.Control.CallSub(Builtstyle)
+Gui.SS_Form1..Show
+Gui.SS_Form1.txtJob.SetFocus
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.SS_Form1_Unload.Start
+F.Intrinsic.Control.SetErrorHandler("SS_Form1_Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+F.ODBC.Connection!conX.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("SS_Form1_Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.SS_Form1_Unload.End
+
+Program.Sub.cmd_txtSuffix_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txtSuffix_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser(1000,"",V.Local.sRet)
+Function.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	V.Global.sWorkOrder.Set(V.Local.sRet(0).Trim)
+	V.Global.sSuffix.Set(V.Local.sRet(1).Trim)
+	V.Global.sPart.Set(V.Local.sRet(2).Trim)
+	Gui.SS_Form1.txtJob.Text(V.Global.sWorkOrder.Trim)
+	Gui.SS_Form1.txtSuffix.Text(V.Global.sSuffix.Trim)
+	Gui.SS_Form1.txtPart.Text(V.Global.sPart.Trim)
+	Gui.SS_Form1.txtDesc.Text(V.Local.sRet(3).Trim)
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txtSuffix_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_txtSuffix_Click.End
+
+Program.Sub.cmdLoad_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdLoad_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.iUB.Declare(Long)
+V.Local.sFilePath.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.sPartFile.Declare(String)
+V.Local.iLoop.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.iQty.Declare(Float)
+V.Local.iC.Declare(Long)
+V.Local.sBegTier.Declare(String)
+V.Local.sEndTier.Declare(String)
+V.Local.fCommitted.Declare(Float)
+
+'Set tier range values for use later
+V.Local.sBegTier.Set(V.Screen.SS_Form1!txtBegTier.Text)
+V.Local.sEndTier.Set(V.Screen.SS_Form1!txtEndTier.Text)
+
+'load our grid
+V.Global.sWorkOrder.Set(V.Screen.SS_Form1!txtJob.text)
+V.Global.sSuffix.Set(V.Screen.SS_Form1!txtSuffix.text)
+V.Global.sPart.Set(V.Screen.SS_Form1!txtPart.Text)
+
+'make sure work order isn't blank
+F.Intrinsic.Control.If(V.Global.sWorkOrder.Trim,=,"")
+	Gui.SS_Form1.cmd_txtSuffix.SetFocus
+	F.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+Function.Intrinsic.Control.BlockEvents
+V.uGlobal.uBom.Redim(-1,-1)
+
+F.Intrinsic.UI.InvokeWaitDialog("Loading...")
+Function.Intrinsic.UI.SetWaitDialogAlwaysOnTop(True)
+
+'get work order qty from parent work order on the screen
+'F.Intrinsic.String.Build("Select Qty_Order From V_JOB_HEADER WHERE JOB = '{0}' And Suffix = '{1}'",V.Global.sWorkOrder.Trim,V.Global.sSuffix.Trim,V.Local.sSQL)
+'George Sandoval 3 Oct 2023 - Their jobs have a blank space to the left so we need to trim the jobs in PCC
+F.Intrinsic.String.Build("Select Qty_Order From V_JOB_HEADER WHERE ltrim(rtrim(JOB)) = '{0}' And Suffix = '{1}'",V.Global.sWorkOrder.Trim,V.Global.sSuffix.Trim,V.Local.sSQL)
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+
+F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,True)
+	F.Intrinsic.UI.Msgbox("Selected Work Order can NOT be found.")
+	F.ODBC.conX!rst.close
+	F.Intrinsic.Control.UnBlockEvents
+	F.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.Else
+	V.Local.iQty.Set(V.ODBC.conX!rst.FieldVal!Qty_Order)
+Function.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close
+
+'load informaion
+'explode BOM and fill in corresponding information
+'make sure selected part is a bom
+'George Sandoval 3 Oct 2023 - Their BOMs have a blank space to the left so we need to trim the parent in PCC
+'F.Intrinsic.String.Build("Select Parent From V_BOM_MSTR WHERE Parent= '{0}'",V.Global.sPart.Trim,V.Local.sSQL)
+F.Intrinsic.String.Build("Select Parent From V_BOM_MSTR WHERE ltrim(rtrim(Parent))= '{0}'",V.Global.sPart.Trim,V.Local.sSQL)
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstBOM",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.conX!rstBOM.EOF,=,True)
+	F.Intrinsic.UI.Msgbox("Selected Finished Good is not a Bill of Material.")
+	F.ODBC.conX!rstBOM.Close
+	F.Intrinsic.Control.UnBlockEvents
+	F.Intrinsic.UI.CloseWaitDialog
+	F.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+F.ODBC.conX!rstBOM.Close
+
+F.Intrinsic.String.Concat(V.System.Temp,"\EXPLODEBOM",V.Caller.Terminal,".txt",V.Local.sFilePath)
+F.Intrinsic.String.Build("{2}{0}{1}{0}{3}",V.Ambient.Tab,V.global.sPart,0,V.local.iQty,V.Local.sFile)
+F.Intrinsic.File.String2File(V.Local.sFilePath,V.Local.sFile)
+F.Global.General.CallWrapperSync(410000,V.Local.sFilePath)
+f.Intrinsic.File.File2StringArray(v.Local.sFilePath,v.Ambient.Tab,v.Local.sFile)
+
+F.Intrinsic.File.GetFileNameFromFQN(V.Local.sFile(3),V.Local.sFile.Trim)
+
+Function.Intrinsic.String.Split(V.Local.sFile," ",V.Local.sFile)
+F.Intrinsic.String.Concat(V.System.Temp,"\",V.Local.sFile(0).Trim,V.Local.sFilePath.Trim)
+F.Intrinsic.File.File2String(V.Local.sFilePath,V.Local.sPartFile)
+F.Intrinsic.String.Split(V.Local.sPartFile,V.Ambient.NewLine,V.Local.sPartFile)
+F.Intrinsic.Math.Sub(V.Local.sPartFile.UBound,1,V.Local.iLoop)
+
+F.Intrinsic.Control.For(V.Local.iC,8,V.Local.iLoop,1)
+	Function.Intrinsic.String.Split(V.Local.sPartFile(v.Local.iC),"|~|",V.Local.sRet)
+	Function.Intrinsic.Control.If(V.uGlobal.uBom.UBound,=,-1)
+		V.Local.iUB.Set(0)
+		V.uGlobal.uBom.Redim(0,0)
+	Function.Intrinsic.Control.Else
+		F.Intrinsic.Math.Add(V.uGlobal.uBom.UBound,1,V.Local.iUB)
+		V.uGlobal.uBom.RedimPreserve(0,V.Local.iUB)
+	Function.Intrinsic.Control.EndIf
+
+	V.uGlobal.uBom(v.Local.iUB)!Level.Set(V.Local.sRet(1))
+	V.uGlobal.uBom(v.Local.iUB)!Component.Set(V.Local.sRet(2))
+	V.uGlobal.ubom(v.Local.iUB)!Desc.Set(V.Local.sRet(3))
+	V.uGlobal.uBom(v.Local.iUB)!Source.Set(V.Local.sRet(5))
+
+	V.uGlobal.uBom(v.Local.iub)!Bom_QTY.Set(V.Local.sRet(6))
+	V.uGlobal.uBom(v.Local.iUB)!Parent.Set(V.local.sret(12))
+
+	F.Intrinsic.String.Build("SELECT (HOURS_ESTIMATED - HOURS_ACTUAL) AS QTY_LEFT FROM V_JOB_OPERATIONS WHERE PART = '{0}' AND JOB = '{1}' AND SUFFIX = '{2}' AND LMO = 'M'",V.uGlobal.uBom(V.Local.iUB)!Component,V.Global.sWorkOrder,V.Global.sSuffix,V.Local.sSQL)
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstCommit",V.Local.sSQL)
+
+	F.Intrinsic.Control.If(V.ODBC.conX!rstCommit.EOF,<>,True)
+		V.Local.fCommitted.Set(V.ODBC.conX!rstCommit.FieldValFloat!QTY_LEFT)
+	F.Intrinsic.Control.Else
+		V.Local.fCommitted.Set(V.uGlobal.uBom(v.Local.iub)!Bom_QTY)
+	F.Intrinsic.Control.EndIf
+
+	F.ODBC.conX!rstCommit.Close
+
+'	'be it knonw on 1/6 the wrapper isn't giving me source information. have to pull it from global bom information
+'	'MS = M
+'	'MJ = F
+'	'PS = P
+'	'PJ = J
+'	f.Intrinsic.String.Build("Select Source From V_BOM_MSTR WHERE Parent = '{0}' And Part = '{1}'",v.uGlobal.uBom(v.Local.iUB)!Parent,v.uGlobal.uBom(v.Local.iUB)!Component,v.Local.sSQL)
+'	f.ODBC.Connection!conX.OpenLocalRecordsetRO("rstSrc",v.Local.sSQL)
+'	F.Intrinsic.Control.If(V.ODBC.conX!rstSrc.EOF,=,False)
+'		f.Intrinsic.Control.SelectCase(V.ODBC.conX!rstSrc.FieldValTrim!Source)
+'			Function.Intrinsic.Control.Case("M")
+'				v.uGlobal.uBom(v.Local.iUB)!Source.Set("MS")
+'			Function.Intrinsic.Control.Case("F")
+'				v.uGlobal.uBom(v.Local.iUB)!Source.Set("MJ")
+'			Function.Intrinsic.Control.Case("P")
+'				v.uGlobal.uBom(v.Local.iUB)!Source.Set("PS")
+'			Function.Intrinsic.Control.Case("J")
+'				v.uGlobal.uBom(v.Local.iUB)!Source.Set("PJ")
+'			Function.Intrinsic.Control.Case("C")
+'				v.uGlobal.uBom(v.Local.iUB)!Source.Set("CS")
+'			Function.Intrinsic.Control.Case("G")
+'				v.uGlobal.uBom(v.Local.iUB)!Source.Set("CJ")
+'		Function.Intrinsic.Control.EndSelect
+'	Function.Intrinsic.Control.EndIf
+'	f.ODBC.conX!rstSrc.Close
+
+	'depending on the source code we are going to do something
+	'if MJ, we get the work order(same work order number as select) and find the suffix with this part as a FG.
+	'then get the workcenter it's currently on, then get the duedate of the work order, and the qty available will be the quantity completed on the work order in this row.
+	F.Intrinsic.Control.If(V.uGlobal.uBom(v.Local.iUB)!Source.Trim,=,"MJ")
+'		v.uGlobal.uBom(v.Local.iUB)!WorkOrder.Set(V.Global.sWorkOrder)
+		'get the job information for this Manu to Job Part.
+		F.Intrinsic.String.Build("Select Job,Suffix,Part, Qty_Completed,Date_Due From V_Job_Header Where Job = '{0}' And Part ='{1}'",V.Global.sWorkOrder.Trim,V.uGlobal.uBom(v.Local.iUB)!Component,V.Local.sSQL)
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstH",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.conX!rstH.eof,=,False)
+			'grab informaiton
+			V.uGlobal.uBom(v.Local.iUB)!WorkOrder.Set(V.Global.sWorkOrder.Trim)
+			V.uGlobal.uBom(v.Local.iUB)!Suffix.Set(V.ODBC.conX!rsth.FieldValTrim!Suffix)
+'			V.uGlobal.uBom(v.Local.iUB)!QtyAvailable.Set(V.ODBC.conX!rstH.FieldValTrim!Qty_Completed)
+			'change by 1/11/16, they don't like it not showing qty on hand from the job, they want to show it from inv.
+
+			F.Intrinsic.String.Build("Select Qty_OnHand From V_Inventory_MSTR WHere Part = '{0}' AND (LOCATION = ' ' OR LOCATION = '')",V.uGlobal.ubom(v.Local.iUB)!Component.Trim,V.Local.sSQL)
+			F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstInv",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.ODBC.conX!rstInv.EOF,=,True)
+				V.uGlobal.ubom(v.Local.iUB)!QtyAvailable.Set(0)
+			Function.Intrinsic.Control.Else
+				V.uGlobal.uBom(v.Local.iUB)!QtyAvailable.Set(V.ODBC.conX!rstInv.FieldVal!Qty_Onhand)
+			Function.Intrinsic.Control.EndIf
+			F.ODBC.conX!rstInv.Close
+
+			V.uGlobal.uBom(v.Local.iUB)!DueDate.Set(V.ODBC.conX!rstH.FieldVal!Date_Due)
+			'now go into Job Operations and get the first labor sequence found to be open.
+			F.Intrinsic.String.Build(" Select Part From V_Job_Operations Where Job = '{0}' And Suffix = '{1}' AND LMO <>'C' AND LMO <>'M'  And Flag_Closed <> 'Y' And Seq <'995000' Order By Seq ASC",V.Global.sWorkOrder,V.ODBC.conX!rstH.FieldValTrim!Suffix,V.Local.sSQL)
+			F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstO",V.Local.sSQL)
+			Function.Intrinsic.Control.If(V.ODBC.conX!rstO.EOF,=,False)
+				V.uGlobal.uBom(v.Local.iUB)!WorkCenter.Set(V.ODBC.conX!rstO.FieldValTrim!Part)
+			Function.Intrinsic.Control.Else
+				V.uGlobal.uBom(v.Local.iUB)!WorkCenter.Set("")
+			Function.Intrinsic.Control.EndIf
+			F.ODBC.conX!rstO.Close
+
+			'get the bin that this part was WIP'd to if existing. Item history
+			F.Intrinsic.String.Build("Select Bin From V_Item_HIstory Where Part = '{0}' ANd Job ='{1}' And Suffix = '{2}' Order By Date_History Desc,Time_Item_History Desc",V.ODBC.conX!rstH.FieldVal!Part,V.Global.sWorkOrder.Trim,V.ODBC.conX!rstH.FieldValTrim!Suffix,V.Local.sSQL)
+			F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstI",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.ODBC.conX!rstI.EOF,=,False)
+				V.uGlobal.uBom(v.Local.iUB)!Bin.Set(V.ODBC.conX!rstI.FieldValTrim!bin)
+			Function.Intrinsic.Control.Else
+				V.uGlobal.uBom(v.Local.iUB)!Bin.Set("")
+			Function.Intrinsic.Control.EndIf
+			F.ODBC.conX!rstI.Close
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("Select Qty_OnHand From V_Inventory_MSTR WHere Part = '{0}' AND (LOCATION = ' ' OR LOCATION = '')",V.uGlobal.ubom(v.Local.iUB)!Component.Trim,V.Local.sSQL)
+			F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstInv",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.ODBC.conX!rstInv.EOF,=,True)
+				V.uGlobal.ubom(v.Local.iUB)!QtyAvailable.Set(0)
+			Function.Intrinsic.Control.Else
+				V.uGlobal.uBom(v.Local.iUB)!QtyAvailable.Set(V.ODBC.conX!rstInv.FieldVal!Qty_Onhand)
+			Function.Intrinsic.Control.EndIf
+			F.ODBC.conX!rstInv.Close
+
+		Function.Intrinsic.Control.EndIf
+		F.ODBC.conX!rstH.Close
+	F.Intrinsic.Control.ElseIf(V.uGlobal.uBom(v.Local.iUB)!Source.Trim,=,"PJ")
+		'here we are trying to get a purchased order that has this part a line. get the first purchase order we are going off of po number order.
+		F.Intrinsic.String.Build("Select Purchase_Order,Left(Record_NO,3)As PO_Line,Part,Qty_Received, Date_Due_Line From V_PO_LINES WHERE PART = '{0}' And Qty_Received > '0' And Qty_Received > '0' And Qty_received < Qty_order Order By Purchase_Order DESC",V.uGlobal.uBom(v.Local.iUB)!Component,V.Local.sSQL)
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstPO",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.conx!rstPO.EOF,=,False)
+			'grab PO Number,Qty Received.
+			V.uGlobal.uBom(v.Local.iUB)!PO.Set(V.ODBC.conX!rstPO.FieldValTrim!pURCHASE_oRDER)
+			V.uGlobal.uBom(v.Local.iUB)!POLine.Set(V.ODBC.conX!rstPO.FieldValTrim!PO_Line)
+			V.uGlobal.uBom(v.Local.iUB)!QtyAvailable.Set(V.ODBC.conX!rstPO.FieldVal!Qty_Received)
+			V.uGlobal.uBom(v.Local.iUB)!DueDate.Set(V.ODBC.conX!rstPO.FieldValTrim!Date_Due_Line)
+			'we know we have a po number and line now get our bin we received it to.
+			F.Intrinsic.String.Build("Select Bin From V_Item_HIstory Where Part = '{0}' ANd Purchase_ORder ='{1}' And PO_LINE = '{2}0' Order By Date_History Desc,Time_Item_History Desc",V.uGlobal.uBom(v.Local.iUB)!Component,V.uGlobal.uBom(v.Local.iUB)!PO,V.uGlobal.uBom(v.Local.iUB)!POLine,V.Local.sSQL)
+			F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstI",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.ODBC.conX!rstI.EOF,=,False)
+				V.uGlobal.uBom(v.Local.iUB)!Bin.Set(V.ODBC.conX!rstI.FieldValTrim!bin)
+			Function.Intrinsic.Control.Else
+				V.uGlobal.uBom(v.Local.iUB)!Bin.Set("")
+			Function.Intrinsic.Control.EndIf
+			F.ODBC.conX!rstI.Close
+		Function.Intrinsic.Control.EndIf
+		F.ODBC.conX!rstPO.Close
+	Function.Intrinsic.Control.Else
+
+		'it's not MJ or PJ so we assume it's going to be qty on hand within inventory
+		F.Intrinsic.String.Build("Select Qty_OnHand From V_Inventory_MSTR WHere Part = '{0}' AND LOCATION = ' '",V.uGlobal.ubom(v.Local.iUB)!Component,V.Local.sSQL)
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstInv",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.conX!rstInv.EOF,=,True)
+			V.uGlobal.ubom(v.Local.iUB)!QtyAvailable.Set(0)
+		Function.Intrinsic.Control.Else
+			V.uGlobal.uBom(v.Local.iUB)!QtyAvailable.Set(V.ODBC.conX!rstInv.FieldVal!Qty_Onhand)
+		Function.Intrinsic.Control.EndIf
+		F.ODBC.conX!rstInv.Close
+		'if it's ps we wnat to get the po anyway , came from Lisa Noble herself.
+		F.Intrinsic.Control.If(V.uGlobal.uBom(v.Local.iUB)!Source.Trim,=,"PS")
+			F.Intrinsic.Control.If(V.uGlobal.uBom(v.Local.iUB)!QtyAvailable,<,V.uGlobal.uBom(v.Local.iUB)!Bom_QTY)
+				F.Intrinsic.String.Build("Select Purchase_Order,Left(Record_NO,3)As PO_Line,Part,Qty_Received, Date_Due_Line From V_PO_LINES WHERE PART = '{0}' And Qty_received < Qty_order Order By Purchase_Order DESC",V.uGlobal.uBom(v.Local.iUB)!Component,V.Local.sSQL)
+				'grab PO Number,Qty Received.
+				F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstPO",V.Local.sSQL)
+				F.Intrinsic.Control.If(V.ODBC.conX!rstPO.EOF,=,False)
+					V.uGlobal.uBom(v.Local.iUB)!PO.Set(V.ODBC.conX!rstPO.FieldValTrim!pURCHASE_oRDER)
+					V.uGlobal.uBom(v.Local.iUB)!POLine.Set(V.ODBC.conX!rstPO.FieldValTrim!PO_Line)
+'					V.uGlobal.uBom(v.Local.iUB)!QtyAvailable.Set(V.ODBC.conX!rstPO.FieldVal!Qty_Received)
+					V.uGlobal.uBom(v.Local.iUB)!DueDate.Set(V.ODBC.conX!rstPO.FieldValTrim!Date_Due_Line)
+					'we know we have a po number and line now get our bin we received it to.
+'					F.Intrinsic.String.Build("Select Bin From V_Item_HIstory Where Part = '{0}' ANd Purchase_ORder ='{1}' And PO_LINE = '{2}0' Order By Date_History Desc,Time_Item_History Desc",V.uGlobal.uBom(v.Local.iUB)!Component,V.uGlobal.uBom(v.Local.iUB)!PO,V.uGlobal.uBom(v.Local.iUB)!POLine,V.Local.sSQL)
+'					F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstI",V.Local.sSQL)
+'					F.Intrinsic.Control.If(V.ODBC.conX!rstI.EOF,=,False)
+'						V.uGlobal.uBom(v.Local.iUB)!Bin.Set(V.ODBC.conX!rstI.FieldValTrim!bin)
+'					Function.Intrinsic.Control.Else
+						V.uGlobal.uBom(v.Local.iUB)!Bin.Set("")
+'					Function.Intrinsic.Control.EndIf
+'					F.ODBC.conX!rstI.Close
+				F.Intrinsic.Control.EndIf
+				F.ODBC.conX!rstPO.close
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	'so here if the qty available < Qty needed we are going to flag tihs UDT element Y, if not N. For Color changing purposes
+	F.Intrinsic.Control.If(V.uGlobal.uBom(v.Local.iUB)!QtyAvailable,<,V.Local.fCommitted)
+		V.uGlobal.ubom(v.Local.iUB)!Red.Set("Y")
+	Function.Intrinsic.Control.Else
+		V.uGlobal.ubom(v.Local.iUB)!Red.Set("N")
+	Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iC)
+
+'load our grid
+Gui.SS_Form1.fgGrid.Visible(False)
+
+'Check if their is a tier range value, if so handle the tiers to be loaded, otherwise simply load the grid with all UDT data.
+F.Intrinsic.Control.If(V.Local.sBegTier.Trim,<>,"","OR",V.Local.sEndTier.Trim,<>,"")
+	F.Intrinsic.Control.CallSub(Checktier)
+F.Intrinsic.Control.Else
+	Gui.SS_Form1.fgGrid.LoadFromUDT("v.uglobal.uBOM","Level*!*Source*!*Component*!*Desc*!*BOM_QTY*!*WorkOrder*!*Suffix*!*Workcenter*!*PO*!*POLINE*!*DueDate*!*QtyAvailable*!*Location*!*BIN*!*RED",2)
+F.Intrinsic.Control.EndIf
+
+'loop through and change our color boo
+F.Intrinsic.Math.Sub(V.Screen.SS_Form1!fgGrid.Rows,1,V.Local.iLoop)
+F.Intrinsic.Control.for(V.Local.ic,1,V.Local.iLoop,1)
+	'get text matrxi of last column
+	'for every row.
+	Gui.SS_Form1.fgGrid.GetTextMatrix(14,V.Local.iC,V.Local.sRet)
+	Function.Intrinsic.Control.If(V.Local.sRet.Trim,=,"Y")
+'		Gui.SS_Form1.fgGrid.RemoveStyle(v.Local.iC)
+'		gui.SS_Form1.fgGrid.ApplyStyle(v.Local.iC,3)
+		Gui.SS_Form1.fgGrid.RowColor(V.Local.iC,V.Color.White,V.Color.LtRed)
+	Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.ic)
+
+'loop through our grid. anywhere
+Gui.SS_Form1.fgGrid.Visible(True)
+
+Function.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdLoad_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmdLoad_Click.End
+
+Program.Sub.cmdPickList_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdPickList_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sParam.Declare(String)
+
+Function.Intrinsic.Control.If(V.Global.sWorkOrder.Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+Function.Intrinsic.Control.BlockEvents
+
+F.Intrinsic.UI.InvokeWaitDialog("Printing Material Pick List...")
+F.Intrinsic.String.ConcatCallwrapperArgs(v.Global.sWorkOrder.Trim,v.Global.sSuffix.Trim,v.Global.sWorkOrder.Trim,v.Global.sSuffix.Trim,v.Local.sParam)
+
+F.Intrinsic.Debug.CallWrapperDebugEnable
+F.Global.General.CallWrapperSync(900200,v.Local.sParam)
+F.Intrinsic.Debug.CallWrapperDebugDisable
+F.Intrinsic.UI.CloseWaitDialog
+
+
+Function.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdPickList_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmdPickList_Click.End
+
+Program.Sub.Builtstyle.Start
+F.Intrinsic.Control.SetErrorHandler("Builtstyle_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.ic.Declare(Long)
+V.Local.sCol.Declare(String)
+
+Gui.SS_Form1.fgGrid.Rows(1)
+Gui.SS_Form1.fgGrid.Rows(2)
+Gui.SS_Form1.fgGrid.FixedRows(1)
+Gui.SS_Form1.fgGrid.Cols(15)
+Gui.SS_Form1.fgGrid.SetColumnPercentages(".06:.05:.15:.19:.07:.06:.04:.07:.05:.04:.06:.07:.04:.05:.0")
+
+'last column will be our flag to tell us quickly whether or not we need to turn the snaps red.
+
+Gui.SS_Form1.fgGrid.RowHeight(0,500)
+
+F.Intrinsic.Control.For(V.Local.ic,0,14,1)
+	Gui.SS_Form1.fgGrid.BuildStyle(1,V.Local.ic,"Format","Alignment",4)
+	Gui.SS_Form1.fgGrid.BuildStyle(1,V.Local.ic,"Fontstyle","Bold",True)
+	Gui.SS_Form1.fgGrid.BuildStyle(1,V.Local.ic,"Type","Locked",True)
+	Gui.SS_Form1.fgGrid.BuildStyle(2,V.Local.ic,"Format","Alignment",2)
+	Gui.SS_Form1.fgGrid.BuildStyle(2,V.Local.ic,"Fontstyle","Bold",False)
+	Gui.SS_Form1.fgGrid.BuildStyle(2,V.Local.ic,"Type","Locked",True)
+	Gui.SS_Form1.fgGrid.BuildStyle(3,V.Local.ic,"Format","Alignment",2)
+	Gui.SS_Form1.fgGrid.BuildStyle(3,V.Local.ic,"Fontstyle","Bold",True)
+	Gui.SS_Form1.fgGrid.BuildStyle(3,V.Local.ic,"Type","Locked",True)
+	F.Intrinsic.Control.If(V.Local.ic,=,5)
+		Gui.SS_Form1.fgGrid.BuildStyle(2,V.Local.ic,"Fontstyle","Underline",True)
+		Gui.SS_Form1.fgGrid.BuildStyle(2,V.Local.ic,"Color","Fore",V.Color.LtBlue)
+		Gui.SS_Form1.fgGrid.BuildStyle(3,V.Local.ic,"Fontstyle","Underline",True)
+		Gui.SS_Form1.fgGrid.BuildStyle(3,V.Local.ic,"Color","Fore",V.Color.LtBlue)
+'		gui.SS_Form1.fgGrid.BuildStyle(2,v.Local.ic,"Color","Fore",v.Color.SEC-GSS-03)
+'	F.Intrinsic.Control.ElseIf(v.Local.ic,=,6)
+'		gui.SS_Form1.fgGrid.BuildStyle(2,v.Local.ic,"Fontstyle","Underline",True)
+'		gui.SS_Form1.fgGrid.BuildStyle(2,v.Local.ic,"Color","Fore",v.Color.LtBlue)
+	Function.Intrinsic.Control.ElseIf(V.Local.ic,=,8)
+		Gui.SS_Form1.fgGrid.BuildStyle(2,V.Local.ic,"Fontstyle","Underline",True)
+		Gui.SS_Form1.fgGrid.BuildStyle(2,V.Local.ic,"Color","Fore",V.Color.LtBlue)
+		Gui.SS_Form1.fgGrid.BuildStyle(3,V.Local.ic,"Fontstyle","Underline",True)
+		Gui.SS_Form1.fgGrid.BuildStyle(3,V.Local.ic,"Color","Fore",V.Color.LtBlue)
+	Function.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.Next(V.Local.ic)
+
+'CHANGE ALINGMENT OF OUR QTY COLUMNS.
+Gui.SS_Form1.fgGrid.BuildStyle(2,1,"Format","Alignment",4)
+Gui.SS_Form1.fgGrid.BuildStyle(2,4,"Format","Alignment",6)
+Gui.SS_Form1.fgGrid.BuildStyle(2,11,"Format","Alignment",6)
+
+Gui.SS_Form1.fgGrid.BuildStyle(2,4,"Format","Mask","#,##0.00##")
+Gui.SS_Form1.fgGrid.BuildStyle(2,11,"Format","Mask","#,##0.00##")
+
+Gui.SS_Form1.fgGrid.BuildStyle(3,1,"Format","Alignment",4)
+Gui.SS_Form1.fgGrid.BuildStyle(3,4,"Format","Alignment",6)
+Gui.SS_Form1.fgGrid.BuildStyle(3,11,"Format","Alignment",6)
+
+Gui.SS_Form1.fgGrid.BuildStyle(3,4,"Format","Mask","###0.00##")
+Gui.SS_Form1.fgGrid.BuildStyle(3,11,"Format","Mask","###0.00##")
+
+Gui.SS_Form1.fgGrid.ApplyStyle(0,1)
+F.Intrinsic.String.Split("Tier*!*Source*!*Part*!*Desc*!*Qty Needed*!*Work Order*!*Suffix*!*Workcenter*!*PO*!*Line*!*Due Date*!*Qty Available*!*Loc*!*Bin","*!*",V.Local.sCol)
+
+F.Intrinsic.Control.For(V.Local.ic,0,13,1)
+	Gui.SS_Form1.fgGrid.TextMatrix(V.Local.ic,0,V.Local.sCol(v.Local.ic))
+F.Intrinsic.Control.Next(V.Local.ic)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Builtstyle_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Builtstyle.End
+
+program.sub.fggrid_mouseup.start
+F.Intrinsic.Control.SetErrorHandler("fggrid_mouseup_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sParam.Declare(String)
+V.Local.sJob.Declare(String)
+V.Local.sSuffix.Declare(String)
+V.Local.sPo.Declare(String)
+
+Function.Intrinsic.Control.BlockEvents
+
+F.Intrinsic.Control.If(v.Args.mousecol,=,5)
+	'means it's job
+
+	'clicked on the job number
+	Gui.SS_Form1.fgGrid.GetTextMatrix(v.Args.mousecol,v.Args.mouserow,v.Local.sjob)
+	'get suffix number
+	'which will be columb 6
+	Gui.SS_Form1.fgGrid.GetTextMatrix(6,v.Args.mouserow,v.Local.sSuffix)
+
+	'make sure it's not blank
+	F.Intrinsic.Control.If(v.Local.sJob.Trim,<>,"")
+		F.Intrinsic.String.ConcatCallwrapperArgs("7",v.Local.sJob.Trim,v.Local.sSuffix.Trim,"A",v.Local.sParam)
+		F.Global.General.CallWrapperASync(450000,v.Local.sParam)
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.ElseIf(v.Args.mousecol,=,8)
+	'clicked on the PO Number
+	Gui.SS_Form1.fgGrid.GetTextMatrix(v.Args.mousecol,v.Args.mouserow,v.Local.sPo)
+	Function.Intrinsic.Control.If(v.Local.sPo.Trim,<>,"")
+		F.Intrinsic.String.ConcatCallwrapperArgs("V",v.Local.sPo.Trim,"",v.Local.sParam)
+		F.Global.General.CallWrapperASync(175200,v.Local.sParam)
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.UnBlockEvents
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("fggrid_mouseup_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.fggrid_mouseup.End
+
+program.sub.txtjob_change.start
+F.Intrinsic.Control.SetErrorHandler("txtjob_change_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSQL.Declare(String)
+v.Local.sJob.Declare(String)
+v.Local.sSuffix.Declare(String)
+
+Function.Intrinsic.Control.BlockEvents
+v.Local.sJob.Set(v.Screen.SS_Form1!txtJob.text)
+v.Local.sSuffix.Set(v.Screen.SS_Form1!txtSuffix.Text)
+f.Intrinsic.String.Build("Select Part, Description From V_JOB_HEADER WHERE Job = '{0}' And Suffix = '{1}'",v.Local.sJob.Trim,v.Local.sSuffix.Trim,v.Local.sSQL)
+f.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+f.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,True)
+	gui.SS_Form1.txtPart.Text("")
+	gui.SS_Form1.txtDesc.Text("")
+Function.Intrinsic.Control.Else
+	gui.SS_Form1.txtPart.Text(V.ODBC.conX!rst.FieldValTrim!Part)
+	gui.SS_Form1.txtDesc.Text(V.ODBC.conX!rst.FieldValTrim!Description)
+Function.Intrinsic.Control.EndIf
+f.ODBC.conX!rst.Close
+Function.Intrinsic.Control.UnBlockEvents
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtjob_change_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtjob_change.End
+
+program.sub.txtsuffix_change.start
+F.Intrinsic.Control.SetErrorHandler("txtsuffix_change_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSQL.Declare(String)
+v.Local.sJob.Declare(String)
+v.Local.sSuffix.Declare(String)
+'hindsight is 20/20 exact same as the job changed /shrug
+
+Function.Intrinsic.Control.BlockEvents
+v.Local.sJob.Set(v.Screen.SS_Form1!txtJob.text)
+v.Local.sSuffix.Set(v.Screen.SS_Form1!txtSuffix.text)
+
+f.Intrinsic.String.Build("Select Part, Description From V_JOB_HEADER WHERE Job = '{0}' And Suffix = '{1}'",v.Local.sJob.Trim,v.Local.sSuffix.Trim,v.Local.sSQL)
+f.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+f.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,True)
+	gui.SS_Form1.txtPart.Text("")
+	gui.SS_Form1.txtDesc.Text("")
+Function.Intrinsic.Control.Else
+	gui.SS_Form1.txtPart.Text(V.ODBC.conX!rst.FieldValTrim!Part)
+	gui.SS_Form1.txtDesc.Text(V.ODBC.conX!rst.FieldValTrim!Description)
+Function.Intrinsic.Control.EndIf
+f.ODBC.conX!rst.Close
+Function.Intrinsic.Control.UnBlockEvents
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtsuffix_change_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtsuffix_change.End
+
+program.sub.txtjob_gotfocus.start
+
+Gui.SS_Form1.txtJob.SelectAll
+
+program.sub.txtjob_gotfocus.End
+
+program.sub.txtsuffix_gotfocus.start
+
+Gui.SS_Form1.txtSuffix.SelectAll
+
+program.sub.txtsuffix_gotfocus.End
+
+program.sub.cmdexport_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdexport_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.bEx.Declare(Boolean)
+V.Local.sFQN.Declare(String)
+
+F.Intrinsic.Control.BlockEvents
+
+F.Intrinsic.UI.InvokeWaitDialog("Exporting...")
+
+V.Local.sFile.Set("BIP_DSHBRD.xls")
+
+F.Intrinsic.String.Build("{0}\GSS\{1}",V.system.temp,V.local.sFile,V.local.sFQN)
+
+'does the file exists
+F.Intrinsic.File.Exists(V.Local.sFQN,V.Local.bEx)
+
+F.Intrinsic.Control.If(V.Local.bEx,=,True)
+	F.Intrinsic.File.DeleteFile(V.Local.sFQN)
+F.Intrinsic.Control.EndIf
+
+Gui.SS_Form1.fgGrid.Export(V.Local.sFQN,1,"0:1:2:3:4:5:6:7:8:9:10:11:12:13")
+
+F.Intrinsic.task.ShellExec(V.Caller.Handle,"OPEN",V.Local.sFQN,"","","")
+F.Intrinsic.UI.CloseWaitDialog
+
+
+F.Intrinsic.control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdexport_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3515_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdexport_click.End
+
+Program.Sub.CheckTier.Start
+F.Intrinsic.Control.SetErrorHandler("CheckTier_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.sLevel.Declare(String)
+V.Local.iLevel.Declare(Long)
+V.Local.iBegTier.Declare(Long)
+V.Local.iEndTier.Declare(Long)
+V.Local.iTempTier.Declare(Long)
+
+'Check to make sure that one of the range values isn't blank. If so print out unfiltered screen.
+F.Intrinsic.Control.If(V.Screen.SS_Form1!txtBegTier.Text,=,"","OR",V.Screen.SS_Form1!txtEndTier.Text,=,"")
+	Gui.SS_Form1.fgGrid.LoadFromUDT("v.uglobal.uBOM","Level*!*Source*!*Component*!*Desc*!*BOM_QTY*!*WorkOrder*!*Suffix*!*Workcenter*!*PO*!*POLINE*!*DueDate*!*QtyAvailable*!*Location*!*BIN*!*RED",2)
+F.Intrinsic.Control.Else
+	'Set Beginning Tier and End Tier for comparison later
+	V.Local.iBegTier.Set(V.Screen.SS_Form1!txtBegTier.Text)
+	V.Local.iEndTier.Set(V.Screen.SS_Form1!txtEndTier.Text)
+
+	'Make sure order is in the right order
+	F.Intrinsic.Control.If(V.Local.iEndTier,<,V.Local.iBegTier)
+		V.Local.iTempTier.Set(V.Local.iBegTier)
+		V.Local.iBegTier.Set(V.Local.iEndTier)
+		V.Local.iEndTier.Set(V.Local.iBegTier)
+	F.Intrinsic.Control.EndIf
+
+	'Loop through each sequence to compare and see if the line's level falls within the range.
+	F.Intrinsic.Control.For(V.Local.iC,0,V.uGlobal.uBom.UBound,1)
+		'Convert level to integer for comparison
+		V.Local.sLevel.Set(V.uGlobal.uBom(V.Local.iC)!Level)
+		V.Local.sLevel.Set(V.Local.sLevel.LTrim)
+		V.Local.iLevel.Set(V.Local.sLevel.Left1)
+
+		'If level doesn't fall within range mark to be deleted
+		F.Intrinsic.Control.If(V.Local.iLevel,<,V.Local.iBegTier,"OR",V.Local.iLevel,>,V.Local.iEndTier)
+			F.Intrinsic.Variable.UDTFlagOrdinal(V.uGlobal.uBom,True,V.Local.iC)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iC)
+
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uBom)
+	Gui.SS_Form1.fgGrid.LoadFromUDT("v.uglobal.uBOM","Level*!*Source*!*Component*!*Desc*!*BOM_QTY*!*WorkOrder*!*Suffix*!*Workcenter*!*PO*!*POLINE*!*DueDate*!*QtyAvailable*!*Location*!*BIN*!*RED",2)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CheckTier_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3649_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.CheckTier.End
+
+program.sub.txtbegtier_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtbegtier_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Set End Tier to Beginning Tier
+Gui.SS_Form1.txtEndTier.Text(V.Screen.SS_Form1!txtBegTier.Text)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtbegtier_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3649_BIP_Dshbrd.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.txtbegtier_lostfocus.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_3649_BIP_Dshbrd$}$BCC$}$3/23/2016$}$False
+${$1$}$$}$$}$1$}$15710$}$OLS001-POPULATE-HOOK (On-line GUI)$}$3/23/2016 2:41:08 PM$}$(Program: OLG002; Screen: OLS001)
+
+${$1$}$$}$$}$0$}$15780$}$OLS001-PB-SCRIPT-3-HOOK (On-line GUI)$}$3/23/2016 2:40:53 PM$}$(Program: OLG002; Screen: OLS001)
+
+${$2$}$$}$$}$0$}$4$}$Custom Menu Item$}$3/23/2016 2:40:53 PM$}$Bill of Material -> View -> BOM In Process Dashboard w/ Level Range
+
+Program.Sub.Comments.End
+
